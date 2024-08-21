@@ -1,0 +1,20 @@
+<html>
+    <title>titulo</title>
+    <script>
+        function valida(){
+            nome = document.getElementById("nome").value;
+            if (nome == "") {
+                alert("DIGITE UM NOME.");
+                return false;
+            }
+            return true
+        }
+
+    </script>
+    <body>
+        <form method="post" action="testephp.php">
+            <input type="text" name="nome" id="nome">
+            <input type="submit" id="enviar" onclick="return valida()">
+        </form>
+    </body>
+</html>
