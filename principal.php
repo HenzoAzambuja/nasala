@@ -6,21 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="header-container">
-        <h1>Hello, user</h1>
-        <div>
-            <button>Sair</button>
-        </div>
-    </header>
-
-    <main class="flex">
-        <aside class="aside-menu">
-            <p>Menu</p>
-        </aside>
-
         <div class="container">
-            <span>Conteúdo</span>
+            <div class="header">Header</div>
+            <div class="flex">
+                <div class="aside">Menu</div>
+                <div class="main">Main</div>
+
+            </div>
         </div>
-    </main>
 </body>
 </html>
