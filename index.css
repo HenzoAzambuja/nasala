@@ -6,6 +6,10 @@
 .header {
     background-color: green;
     min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
 }
 
 .flex {
@@ -25,4 +29,16 @@
     background-color: blue;
     width: 600px;
     min-height: 400px;
+}
+
+.span-container {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+.span {
+    color: #000;
+    margin-right: 10px;
+    background-color: blue;
 }
