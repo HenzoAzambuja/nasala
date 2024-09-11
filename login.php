@@ -4,7 +4,7 @@ include("conexao.php");
 $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
 
-$sql = "select nome from usuarios where cpf='$cpf' and senha='$senha' ";
+$sql = "select nome from usuários where cpf='$cpf' and senha='$senha'";
 $resultado = $conn->query($sql);
 $row = $resultado->fetch_assoc();
 
