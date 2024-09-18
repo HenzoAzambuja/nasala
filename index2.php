@@ -29,7 +29,9 @@ include("valida.php");
                 <a href="index2.php">
                     <button class="button">Listar usuários</button>
                 </a>
-                <p>Item 3</p>
+                <a href="">
+                    <button class="button">Alterar Usuários</button>
+                </a>
                 <a href="principal.php">
                     <button class="button">Sair</button>
                 </a>
