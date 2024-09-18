@@ -29,7 +29,7 @@ include("valida.php");
                    <a href="index2.php">
                     <button class="button">Listar usuários</button>
                    </a>
-                   <a href="">
+                   <a href="index3.php">
                     <button class="button">Alterar Usuários</button>
                     </a>
                 </div>

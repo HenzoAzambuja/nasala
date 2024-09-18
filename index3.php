@@ -29,7 +29,7 @@ include("valida.php");
                 <a href="index2.php">
                     <button class="button">Listar usuários</button>
                 </a>
-                <a href="index3.php">
+                <a href="">
                     <button class="button">Alterar Usuários</button>
                 </a>
                 <a href="principal.php">
@@ -45,20 +45,25 @@ include("valida.php");
                             <th>CPF</th>
                             <th>NOME</th>
                             <th>SENHA</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php    
+                        <?php
                         include("conexao.php");
                         $sql = "select * from usuários";
                         $resultado = $conn->query($sql);
 
-                        while($row = $resultado->fetch_assoc()) {
+                        while($row = $resultado->fetch_assoc()){
                         ?>
                         <tr>
-                            <td><?=$row['CPF'];?></td>
-                            <td><?=$row['NOME'];?></td>
-                            <td><?=$row['SENHA'];?></td>
+                            <form method="post" action="alterarUsuario.php">
+                                <input type="hidden" name="cpfAnterior" value="<?=$row['CPF'];?>">
+                                <td><input type="text" name="cpf" value="<?=$row['CPF'];?>"></td>
+                                <td><input type="text" name="nome" value="<?=$row['NOME'];?>"></td>
+                                <td><input type="text" name="senha" value="<?=$row['SENHA'];?>"></td>
+                                <td><button type="submit" class="button" value="alterar">ALTERAR</button></td>
+                            </form>
                         </tr>
                         <?php
                         }

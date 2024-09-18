@@ -3,6 +3,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 0; 
+
 }
 
 .header {
@@ -89,7 +90,7 @@
 
 .tabela-usuarios thead th {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
