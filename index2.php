@@ -33,7 +33,7 @@ include("valida.php");
                     <button class="button">Alterar Usuários</button>
                 </a>
                 <a href="principal.php">
-                    <button class="button">Sair</button>
+                    <button class="button">Voltar</button>
                 </a>
             </div>
 
