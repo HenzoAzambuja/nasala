@@ -1,7 +1,10 @@
 <?php
 include("conexao.php");
-
 include("validacoes.php");
+
+$cpf = $_POST["cpf"];
+$senha = $_POST["senha"];
+$nome = $_POST["nome"];
 
 if (!validarCPF($cpf)){
     die("CPF inválido!");
@@ -10,10 +13,6 @@ if (!validarCPF($cpf)){
 if (!validarSenha($senha)){
     die("SENHA inválida!");
 }
-
-$cpf = $_POST["cpf"];
-$senha = $_POST["senha"];
-$nome = $_POST["nome"];
 
 $sql = "INSERT INTO `usuários`(`CPF`, `NOME`, `SENHA`) VALUES ('$cpf','$nome','$senha')";
 $resultado = $conn->query($sql);
