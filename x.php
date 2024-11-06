@@ -44,15 +44,15 @@
         </style>
         <script>
 
-function validarCPF(cpf) {
+function validarcpf(cpf) {
     // Remove caracteres não numéricos
     
     cpf = String(cpf);//.replace(/\D/g, '');
 
-    // Verifica se o CPF tem 11 dígitos
+    // Verifica se o cpf tem 11 dígitos
     if (cpf.length !== 11) return false;
    
-    // Validação básica do CPF (dígitos repetidos)
+    // Validação básica do cpf (dígitos repetidos)
     if (/^(\d)\1{10}$/.test(cpf)) return false;
 
     // Cálculo dos dígitos verificadores
@@ -75,7 +75,7 @@ function validarCPF(cpf) {
     return true;
 }
 
-function validarSenha(senha) {
+function validarsenha(senha) {
     
     if (senha.length < 6) return false;
 
@@ -97,13 +97,13 @@ function validaFormulario(event) {
     const cpf = document.getElementById("cpf").value;
     const senha = document.getElementById("senha").value;
 
-    if (cpf === "" || !validarCPF(cpf)){
+    if (cpf === "" || !validarcpf(cpf)){
         alert("Por favor, insira um cpf válido.");
         event.preventDefault();
         return false;
     }          
 
-    if (senha === "" || !validarSenha(senha)) {
+    if (senha === "" || !validarsenha(senha)) {
         alert("Por favor, insira uma senha válida.");
         event.preventDefault();
         return false;
@@ -117,8 +117,8 @@ function validaFormulario(event) {
         <div class="login-container">
             <h2>Login</h2>
             <form name="loginForm" method="post" action="login.php" onsubmit="return validaFormulario(event)">
-                CPF: <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF"><br>
-                SENHA: <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                cpf: <input type="text" name="cpf" id="cpf" placeholder="Digite seu cpf"><br>
+                senha: <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
                 <input type="submit" value="Enviar">
             </form>
         </div>

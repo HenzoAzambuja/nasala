@@ -1,7 +1,7 @@
 <?php
 include("conexao.php");
 
-$sql = "select * from usuários";
+$sql = "select * from usuarios";
 
 while(isset($row) && $row["nome"] !=''){
     session_start();
@@ -9,7 +9,7 @@ while(isset($row) && $row["nome"] !=''){
     $_SESSION['senha'] = $senha;
     $_SESSION['nome'] = $row["nome"];
 } else {
-    die("Senha incorreta");
+    die("senha incorreta");
 }
 ?>
 

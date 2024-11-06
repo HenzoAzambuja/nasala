@@ -5,15 +5,15 @@ include("valida.php");
 <html lang="pt-br">
 <script>
 
-function validarCPF(cpf) {
+function validarcpf(cpf) {
     // Remove caracteres não numéricos
     
     cpf = String(cpf);//.replace(/\D/g, '');
 
-    // Verifica se o CPF tem 11 dígitos
+    // Verifica se o cpf tem 11 dígitos
     if (cpf.length !== 11) return false;
    
-    // Validação básica do CPF (dígitos repetidos)
+    // Validação básica do cpf (dígitos repetidos)
     if (/^(\d)\1{10}$/.test(cpf)) return false;
 
     // Cálculo dos dígitos verificadores
@@ -36,7 +36,7 @@ function validarCPF(cpf) {
     return true;
 }
 
-            function validarSenha(senha) {
+            function validarsenha(senha) {
                 
                 if (senha.length < 6) return false;
 
@@ -58,13 +58,13 @@ function validarCPF(cpf) {
                 const cpf = document.getElementById("cpf").value;
                 const senha = document.getElementById("senha").value;
 
-                if (cpf === "" || !validarCPF(cpf)){
+                if (cpf === "" || !validarcpf(cpf)){
                     alert("Por favor, insira um cpf válido.");
                     event.preventDefault();
                     return false;
                 }          
 
-                if (senha === "" || !validarSenha(senha)) {
+                if (senha === "" || !validarsenha(senha)) {
                     alert("Por favor, insira uma senha válida.");
                     event.preventDefault();
                     return false;
@@ -94,13 +94,13 @@ function validarCPF(cpf) {
             <div class="aside">
                 <h2>Menu</h2>
                 <a href="index.php">
-                    <button class="button">Cadastrar usuários</button>
+                    <button class="button">Cadastrar usuarios</button>
                 </a>
                 <a href="index2.php">
-                    <button class="button">Listar usuários</button>
+                    <button class="button">Listar usuarios</button>
                 </a>
                 <a href="index3.php">
-                    <button class="button">Alterar Usuários</button>
+                    <button class="button">Alterar usuarios</button>
                 </a>
                 <a href="principal.php">
                     <button class="button">Voltar</button>
@@ -110,13 +110,13 @@ function validarCPF(cpf) {
             <div class="main">
                 <h2>Formulário de Cadastro</h2>
                 <form method="post" action="cadastrar-usuarios.php" onsubmit="return validaFormulario(event)">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" required><br>
+                    <label for="cpf">cpf:</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="Digite seu cpf" required><br>
 
-                    <label for="senha">Senha:</label>
+                    <label for="senha">senha:</label>
                     <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required><br>
 
-                    <label for="nome">Nome:</label>
+                    <label for="nome">nome:</label>
                     <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required><br>
 
                     <input type="submit" value="Enviar">

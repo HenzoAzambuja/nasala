@@ -8,20 +8,20 @@ $senha222 = $_POST["senha"];
 
 include("validacoes.php");
 
-if (!validarCPF($cpf)){
-    die("CPF inválido!");
+if (!validarcpf($cpf)){
+    die("cpf inválido!");
 }
 
 
-if (!validarSenha($senha222)){
-    die("SENHA inválida!");
+if (!validarsenha($senha222)){
+    die("senha inválida!");
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf = $_POST["cpf"];
     $senha = $_POST["senha"];
 
-    $stmt = $conn->prepare("select nome from usuários where cpf = ? and senha = ?");
+    $stmt = $conn->prepare("select nome from usuarios where cpf = ? and senha = ?");
     $stmt->bind_param("ss", $cpf, $senha222);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: principal.php");
         exit();
     } else {
-        die("Senha incorreta");
+        die("senha incorreta");
     }
 
     $stmt->close();

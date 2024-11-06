@@ -1,14 +1,14 @@
 <?php   
 include("conexao.php");
 
-function validarCPF($cpf) {
+function validarcpf($cpf) {
     // Remove caracteres não numéricos
     $cpf = preg_replace('/\D/', '', $cpf);
 
-    // Verifica se o CPF tem 11 dígitos
+    // Verifica se o cpf tem 11 dígitos
     if (strlen($cpf) !== 11) return false;
 
-    // Validação básica do CPF (dígitos repetidos)
+    // Validação básica do cpf (dígitos repetidos)
     if (preg_match('/^(\d)\1{10}$/', $cpf)) return false;
 
     // Cálculo dos dígitos verificadores
@@ -30,7 +30,7 @@ function validarCPF($cpf) {
     return true;
 }
 
-function validarSenha($senha2) {
+function validarsenha($senha2) {
     if (strlen($senha2) < 6) return false;
 
     $temLetraMinuscula = preg_match('/[a-z]/', $senha2);

@@ -6,15 +6,15 @@ include("valida.php");
 
 <script>
 
-function validarCPF(cpf) {
+function validarcpf(cpf) {
     // Remove caracteres não numéricos
     
     cpf = String(cpf);//.replace(/\D/g, '');
 
-    // Verifica se o CPF tem 11 dígitos
+    // Verifica se o cpf tem 11 dígitos
     if (cpf.length !== 11) return false;
    
-    // Validação básica do CPF (dígitos repetidos)
+    // Validação básica do cpf (dígitos repetidos)
     if (/^(\d)\1{10}$/.test(cpf)) return false;
 
     // Cálculo dos dígitos verificadores
@@ -37,7 +37,7 @@ function validarCPF(cpf) {
     return true;
 }
 
-function validarSenha(senha) {
+function validarsenha(senha) {
     
     if (senha.length < 6) return false;
 
@@ -59,13 +59,13 @@ function validaFormulario(cpf) {
     const cpf_form = document.getElementById("cpf"+cpf).value;
     const senha = document.getElementById("senha"+cpf).value;
     
-    if (cpf_form === "" || !validarCPF(cpf_form)){
+    if (cpf_form === "" || !validarcpf(cpf_form)){
         alert("Por favor, insira um cpf válido.");
         
         return false;
     }          
    
-    if (senha === "" || !validarSenha(senha)) {
+    if (senha === "" || !validarsenha(senha)) {
         alert("Por favor, insira uma senha válida.");
     
         return false;
@@ -95,13 +95,13 @@ function validaFormulario(cpf) {
             <div class="aside">
                 <h2>Menu</h2>
                 <a href="index.php">
-                    <button class="button">Cadastrar usuários</button>
+                    <button class="button">Cadastrar usuarios</button>
                 </a>
                 <a href="index2.php">
-                    <button class="button">Listar usuários</button>
+                    <button class="button">Listar usuarios</button>
                 </a>
                 <a href="">
-                    <button class="button">Alterar Usuários</button>
+                    <button class="button">Alterar usuarios</button>
                 </a>
                 <a href="principal.php">
                     <button class="button">Voltar</button>
@@ -113,26 +113,26 @@ function validaFormulario(cpf) {
                 <table class="tabela-usuarios">
                     <thead>
                         <tr>
-                            <th>CPF</th>
-                            <th>NOME</th>
-                            <th>SENHA</th>
-                            <th></th>
+                            <th>cpf</th>
+                            <th>nome</th>
+                            <th>senha</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include("conexao.php");
-                        $sql = "select * from usuários";
+                        $sql = "select * from usuarios";
                         $resultado = $conn->query($sql);
 
                         while($row = $resultado->fetch_assoc()){
                         ?>
                         <tr>
-                            <form method="post" action="alterarUsuario.php"  onsubmit="return validaFormulario(<?=$row['CPF'];?>)">
-                                <input type="hidden" name="cpfAnterior" value="<?=$row['CPF'];?>">
-                                <td><input type="text" name="cpf" id="cpf<?=$row['CPF'];?>" value="<?=$row['CPF'];?>"></td>
-                                <td><input type="text" name="nome" id="nome<?=$row['CPF'];?>" value="<?=$row['NOME'];?>"></td>
-                                <td><input type="text" name="senha" id="senha<?=$row['CPF'];?>" value="<?=$row['SENHA'];?>"></td>
+                            <form method="post" action="alterarUsuario.php"  onsubmit="return validaFormulario(<?=$row['cpf'];?>)">
+                                <input type="hidden" name="cpfAnterior" value="<?=$row['cpf'];?>">
+                                <td><input type="text" name="cpf" id="cpf<?=$row['cpf'];?>" value="<?=$row['cpf'];?>"></td>
+                                <td><input type="text" name="nome" id="nome<?=$row['cpf'];?>" value="<?=$row['nome'];?>"></td>
+                                <td><input type="text" name="senha" id="senha<?=$row['cpf'];?>" value="<?=$row['senha'];?>"></td>
                                 <td><button type="submit" class="button" value="alterar">ALTERAR</button></td>
                             </form>
                         </tr>

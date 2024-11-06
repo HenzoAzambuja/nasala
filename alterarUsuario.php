@@ -3,22 +3,23 @@ include("conexao.php");
 
 include("validacoes.php");
 
-if (!validarCPF($cpf)){
-    die("CPF inválido!");
-}
-
-if (!validarSenha($senha)){
-    die("SENHA inválida!");
-}
-
 $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
 $nome = $_POST["nome"];
 $cpfAnterior = $_POST["cpfAnterior"];
 
-$sql = "update usuários set CPF = '$cpf', SENHA = '$senha', NOME = '$nome' where CPF = '$cpfAnterior'";
+if (!validarcpf($cpf)){
+    die("cpf inválido!");
+}
 
-if(!$resultado = $conn->query($sql)){
+if (!validarsenha($senha)){
+    die("senha inválida!");
+}
+
+$stmt = $conn->prepare("update usuarios set cpf = ?, senha = ?, nome = ? where cpf = ?");
+$stmt->bind_param("ssss", $cpf, $senha, $nome, $cpfAnterior);
+    
+if(!$stmt->execute()){
     die("erro");
 }
 

@@ -24,13 +24,13 @@ include("valida.php");
             <div class="aside">
                 <h2>Menu</h2>
                 <a href="index.php">
-                    <button class="button">Cadastrar usuários</button>
+                    <button class="button">Cadastrar usuarios</button>
                 </a>
                 <a href="index2.php">
-                    <button class="button">Listar usuários</button>
+                    <button class="button">Listar usuarios</button>
                 </a>
                 <a href="index3.php">
-                    <button class="button">Alterar Usuários</button>
+                    <button class="button">Alterar usuarios</button>
                 </a>
                 <a href="principal.php">
                     <button class="button">Voltar</button>
@@ -42,23 +42,23 @@ include("valida.php");
                 <table class="tabela-usuarios">
                     <thead>
                         <tr>
-                            <th>CPF</th>
-                            <th>NOME</th>
-                            <th>SENHA</th>
+                            <th>cpf</th>
+                            <th>nome</th>
+                            <th>senha</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php    
                         include("conexao.php");
-                        $sql = "select * from usuários";
+                        $sql = "select * from usuarios";
                         $resultado = $conn->query($sql);
 
                         while($row = $resultado->fetch_assoc()) {
                         ?>
                         <tr>
-                            <td><?=$row['CPF'];?></td>
-                            <td><?=$row['NOME'];?></td>
-                            <td><?=$row['SENHA'];?></td>
+                            <td><?=$row['cpf'];?></td>
+                            <td><?=$row['nome'];?></td>
+                            <td><?=$row['senha'];?></td>
                         </tr>
                         <?php
                         }
