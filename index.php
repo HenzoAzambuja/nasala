@@ -6,17 +6,17 @@ include("valida.php");
 <script>
 
 function validarcpf(cpf) {
-    // Remove caracteres não numéricos
+   
     
-    cpf = String(cpf);//.replace(/\D/g, '');
+    cpf = String(cpf);
 
-    // Verifica se o cpf tem 11 dígitos
+   
     if (cpf.length !== 11) return false;
    
-    // Validação básica do cpf (dígitos repetidos)
+
     if (/^(\d)\1{10}$/.test(cpf)) return false;
 
-    // Cálculo dos dígitos verificadores
+    
     const calcularDigito = (cpf, peso) => {
         let soma = 0;
         for (let i = 0; i < peso.length; i++) {
@@ -29,10 +29,10 @@ function validarcpf(cpf) {
     const primeiroDigito = calcularDigito(cpf.slice(0, 9), [10, 9, 8, 7, 6, 5, 4, 3, 2]);
     const segundoDigito = calcularDigito(cpf.slice(0, 10), [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]);
 
-    // Verifica se os dígitos verificadores estão corretos
+   
     if (cpf.slice(-2) !== primeiroDigito + segundoDigito) return false;
 
-    // Se todas as verificações passarem, retorna true
+
     return true;
 }
 

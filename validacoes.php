@@ -24,7 +24,6 @@ function validarcpf($cpf) {
     $primeiroDigito = $calcularDigito(substr($cpf, 0, 9), [10, 9, 8, 7, 6, 5, 4, 3, 2]);
     $segundoDigito = $calcularDigito(substr($cpf, 0, 10), [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]);
 
-    // Verifica se os dígitos verificadores estão corretos
     if (substr($cpf, -2) !== $primeiroDigito . $segundoDigito) return false;
 
     return true;
